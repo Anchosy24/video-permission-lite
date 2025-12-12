@@ -71,9 +71,11 @@ class Access extends Model
     }
 
     // Approve request dan buat permission
-    public function approve($durationHours = 2)
+    public function approve($durationHours)
     {
         $this->update(['status' => 'approved']);
+
+        $durationHours = (int) $durationHours;
 
         return Permission::create([
             'access_id' => $this->id,

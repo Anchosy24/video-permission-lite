@@ -208,7 +208,11 @@
                                         </small>
                                         <br>
                                         <small class="text-muted">
-                                            <i class="bi bi-clock"></i> {{ $approval->permission->duration_hours }} jam
+                                            @if($approval->permission)
+                                                <i class="bi bi-clock"></i> {{ $approval->permission->duration_hours }} jam
+                                            @else
+                                                <i class="bi bi-clock"></i> -
+                                            @endif
                                         </small>
                                     </div>
                                     <span class="badge bg-success">Approved</span>
